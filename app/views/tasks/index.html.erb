@@ -2,10 +2,10 @@
   <h1 class="text-3xl font-bold">My Academy Quest</h1>
   <%= link_to 'My brag Document', brags_path, class: 'btn btn-primary' %>
   <h2 class="text-2xl">Quest Checklist</h2>
+  <%= link_to "Add New Quest", new_task_path, class: 'btn btn-secondary', data: {turbo_frame: "new_task"} %>
   <%= turbo_frame_tag "new_task" do %>
-    <%= link_to "Add New Quest", new_task_path, class: 'btn btn-secondary' %>
   <% end %>
-    <%= turbo_frame_tag "task_list", class: "flex flex-col gap-2 mt-4" do %>
-      <%= render @tasks %>
-    <% end %>
+  <%= turbo_frame_tag "task_list", class: "flex flex-col gap-2 mt-4" do %>
+    <%= render @tasks %>
+  <% end %>
 </section>

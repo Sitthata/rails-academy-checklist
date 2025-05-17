@@ -28,7 +28,6 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.save
         format.html { redirect_to tasks_path, notice: "Task was successfully created." }
-        format.json { render :show, status: :created, location: @task }
         format.turbo_stream {
           render turbo_stream: [
             turbo_stream.append("task_list", partial: "tasks/task", locals: { task: @task, index: Task.count })
@@ -36,7 +35,6 @@ class TasksController < ApplicationController
         }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -46,8 +44,9 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.update(task_params)
         format.html { redirect_to tasks_path, notice: "Task was successfully updated." }
-        format.json { render :show, status: :ok, location: @task }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
+        format.turbo_stream {
+          render turbo_stream: turbo_stream.update(@task, partial: "tasks/task", locals: { task: @task })
+        }
       end
     end
   end
@@ -58,7 +57,6 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to tasks_path, status: :see_other, notice: "Task was successfully destroyed." }
-      format.json { head :no_content }
       format.turbo_stream {
         render turbo_stream: turbo_stream.remove(@task)
       }
