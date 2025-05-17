@@ -24,6 +24,7 @@
           task, 
           method: :delete, 
           class: 'btn btn-error text-base',
+          data: { testid: 'delete-task-button' },
           form: {
             onsubmit: "document.getElementById('modal-#{dom_id(task)}').close();"
           }

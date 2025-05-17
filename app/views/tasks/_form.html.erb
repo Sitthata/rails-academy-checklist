@@ -1,8 +1,8 @@
 <section>
   <%= form_with model: @task, local: true do |form| %>
     <div class="flex space-x-1">
-      <%= form.text_field :description, class: 'input', placeholder: 'Your quest', data: { datatest-id: 'description-input' } %>
-      <%= form.submit 'Create Quest', class: 'btn btn-primary' %>
+      <%= form.text_field :description, class: 'input', placeholder: 'Your quest', data: { testid: 'description-input' } %>
+      <%= form.submit 'Create Quest', class: 'btn btn-primary', data: {testid: "create-quest"} %>
       <%= link_to 'Cancel', tasks_path, class: 'btn', data: { turbo_frame: "_top" } %>
     </div>
   <% end %>
