@@ -44,9 +44,6 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.update(task_params)
         format.html { redirect_to tasks_path, notice: "Task was successfully updated." }
-        format.turbo_stream {
-          render turbo_stream: turbo_stream.update(@task, partial: "tasks/task", locals: { task: @task })
-        }
       end
     end
   end

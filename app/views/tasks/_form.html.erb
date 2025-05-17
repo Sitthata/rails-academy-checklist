@@ -2,7 +2,11 @@
   <%= form_with model: @task, local: true do |form| %>
     <div class="flex space-x-1">
       <%= form.text_field :description, class: 'input', placeholder: 'Your quest', data: { testid: 'description-input' } %>
-      <%= form.submit 'Create Quest', class: 'btn btn-primary', data: {testid: "create-quest"} %>
+      <% if @task.new_record? %>
+        <%= form.submit 'Create Quest', class: 'btn btn-primary', data: {testid: "create-quest"} %>
+      <% else %>
+        <%= form.submit 'Update Quest', class: 'btn btn-primary', data: {testid: "update-quest"} %>
+      <% end %>
       <%= link_to 'Cancel', tasks_path, class: 'btn', data: { turbo_frame: "_top" } %>
     </div>
   <% end %>
