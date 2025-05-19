@@ -8,7 +8,7 @@ services:
       - bundle:/usr/local/bundle
     environment:
       # - RAILS_ENV=development/
-      - SECRET_KEY_BASE=eec57a9266cc24b34bac42804c3184176bc83a725b1eece8ad20b413c67f89f6a4c6be50e91919280c423e8aa962383f8a3c676b9c3c40611449410dee3c7e27
+      - SECRET_KEY_BASE=${SECRET_KEY_BASE}
   db:
     image: postgres:15-alpine
     container_name: academy_quest_db

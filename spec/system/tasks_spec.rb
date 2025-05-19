@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe 'Tasks', type: :system do
-
   context 'index page' do
     before do
       create(:task, description: 'Task 1')
@@ -27,14 +26,12 @@ describe 'Tasks', type: :system do
 
     it 'allows user to delete a task' do
       click_button 'Delete'
-      
+
       should_display_a_delete_modal
       click_button 'delete-task-button'
       expect(page).not_to have_content('Task 1')
     end
-
   end
-
 end
 
 def should_display_a_delete_modal
