@@ -20,7 +20,7 @@ describe 'Tasks', type: :system do
     it 'allows user to edit a task' do
       click_link 'Edit'
       fill_in 'Your quest', with: 'Updated Task'
-      click_button 'Create Quest'
+      click_button 'update-quest'
       expect(page).to have_content('Updated Task')
     end
 
