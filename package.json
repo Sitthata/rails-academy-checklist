@@ -1,0 +1,14 @@
+{
+  "name": "rails-academy-checklist",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/bun": "latest",
+    "@types/node": "^22.15.21"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "scripts": {}
+}
